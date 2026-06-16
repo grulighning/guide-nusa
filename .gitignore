@@ -19,6 +19,8 @@
 /storage/*.key
 /storage/pail
 /vendor
+/railway
+/guide_nusa
 Homestead.json
 Homestead.yaml
 Thumbs.db
