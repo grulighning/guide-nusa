@@ -8,9 +8,7 @@ use App\Http\Controllers\PemanduController;
 use App\Http\Controllers\PemanduDestinasiController;
 
 // ── Health check ───────────────────────────────────────────────
-Route::get('/health', function () {
-    return response()->json(['status' => 'ok']);
-});
+Route::get('/health', [App\Http\Controllers\HealthController::class, 'index']);
 
 // ── Public routes ──────────────────────────────────────────────
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
