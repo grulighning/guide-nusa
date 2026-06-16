@@ -7,6 +7,11 @@ use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PemanduController;
 use App\Http\Controllers\PemanduDestinasiController;
 
+// ── Health check ───────────────────────────────────────────────
+Route::get('/health', function () {
+    return response()->json(['status' => 'ok']);
+});
+
 // ── Public routes ──────────────────────────────────────────────
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/destinasi', [DestinasiController::class, 'index'])->name('destinasi.index');

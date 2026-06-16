@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ===== BASE ===== */
 [x-cloak] { display: none !important; }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
