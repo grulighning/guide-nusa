@@ -5,7 +5,6 @@
     "buildCommand": "cp .env.example .env && composer install --no-interaction --optimize-autoloader --no-dev && php artisan key:generate --force && php artisan optimize && php artisan storage:link && npm ci && npm run build"
   },
   "deploy": {
-    "startCommand": "heroku-php-apache2 public/",
     "healthcheckPath": "/health",
     "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE"
