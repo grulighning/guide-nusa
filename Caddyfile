@@ -1,0 +1,36 @@
+{
+    admin off
+    persist_config off
+    auto_https off
+
+    log {
+        format json
+        output stderr
+        level DEBUG
+    }
+
+    frankenphp {
+        {$FRANKENPHP_CONFIG}
+    }
+}
+
+{$CADDY_EXTRA_CONFIG}
+
+:{$PORT:80} {
+    root * /app/public
+
+    encode zstd br gzip
+
+    file_server {
+        hide .git
+        hide .env*
+    }
+
+    # Health check - bypass Laravel
+    @health path /health
+    rewrite @health /health.php
+
+    {$CADDY_SERVER_EXTRA_DIRECTIVES}
+
+    php_server
+}
